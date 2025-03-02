@@ -10,3 +10,5 @@ using Random
 using Dates
 using Plots
 using Printf
+
+THREADS = Threads.nthreads();
