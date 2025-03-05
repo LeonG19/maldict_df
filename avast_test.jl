@@ -18,3 +18,10 @@ jsons = open("../data/test_features.jsonl") do f
 end
 
 @assert length(jsons) > 0
+
+schema_parts = tmap(x -> JsonGrinder.schema(x), jsons)
+schema = merge(schema_parts...)
+
+extractor = suggestextractor(schema)
+data = tmap(extractor, jsons)
+display(data)
