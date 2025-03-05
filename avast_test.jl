@@ -12,3 +12,9 @@ using Plots
 using Printf
 
 THREADS = Threads.nthreads();
+
+jsons = open("../data/test_features.jsonl") do f
+    [JSON.parse(line) for line in eachline(f)]
+end
+
+@assert length(jsons) > 0
