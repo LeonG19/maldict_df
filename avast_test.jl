@@ -23,4 +23,5 @@ schema = JsonGrinder.schema(jsons)
 
 extractor = suggestextractor(schema)
 data = tmap(extractor, jsons)
-display(data)
+df = DataFrame(data)
+CSV.write("output_mald.csv", df)
