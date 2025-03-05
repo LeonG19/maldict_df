@@ -19,8 +19,7 @@ end
 
 @assert length(jsons) > 0
 
-schema_parts = tmap(x -> JsonGrinder.schema(x), jsons)
-schema = merge(schema_parts...)
+schema = JsonGrinder.schema(jsons)
 
 extractor = suggestextractor(schema)
 data = tmap(extractor, jsons)
